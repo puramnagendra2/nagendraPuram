@@ -214,7 +214,7 @@ if selected == 'Education':
         <div style='display: flex; align-items: center; justify-content: center; 
                         border: 4px solid #6c5ce7; border-radius: 20px; text-align: center; 
                         height: 100%; margin-top:20px;'>
-                <h4 style='color:#0984e3; margin: 0;'>2018 - 2021</h4>
+                <h4 style='color:#0984e3; margin: 0;'>2022 - 2024</h4>
         </div>""", unsafe_allow_html=True)
     with col3:
         st.markdown("""
