@@ -4,8 +4,10 @@ import requests
 from streamlit_lottie import st_lottie
 import base64
 from pathlib import Path
+from streamlit_pills import pills
 
 
+# Lottie Files
 
 def load_lottie(url):
     r = requests.get(url)
@@ -14,6 +16,9 @@ def load_lottie(url):
     return r.json()
 
 lottie_coder = load_lottie(r"https://lottie.host/f1824c04-c2e3-4190-942e-89bc7028a163/LEB3P705dH.json")
+
+# Studying Lottie
+study_lottie = load_lottie(r"https://lottie.host/9a28a239-0f79-4afa-bda9-6efe44b47e4d/TWbQQlAANL.json") 
 
 # Personal
 st.set_page_config(page_title="Nagendra Puram", page_icon=":wave:", layout="wide")
@@ -198,54 +203,61 @@ with st.container():
         options=["Education", "Projects", "Skills", "Blogs", "Contact"],
         icons=["mortarboard-fill", 'code', 'card-list', "book", 'envelope-arrow-down-fill'],
         orientation='horizontal',
-        menu_icon="cast"
+        menu_icon="cast",
+        styles={
+            "container": {"padding": "5px", "background-color": "#000000"},  # Background of the entire menu
+            "nav-link": {
+                "font-size": "16px",
+                "text-align": "center",
+                "margin": "2px",
+                "color": "white",
+            },
+            "nav-link-selected": {"background-color": "#008cba", "color": "white"},  # Background for selected item
+        },
     )
 
 # Education Section
 
 if selected == 'Education':
-    # st_lottie(lottie_coder)
-   
-    col1, col2, col3, col4 = st.columns([1, 2, 6, 1], gap="small")
-    with col1:
-        pass
-    with col2:
-        st.markdown("""
-        <div style='display: flex; align-items: center; justify-content: center; 
-                        border: 4px solid #6c5ce7; border-radius: 20px; text-align: center; 
-                        height: 100%; margin-top:20px;'>
-                <h4 style='color:#0984e3; margin: 0;'>2022 - 2024</h4>
-        </div>""", unsafe_allow_html=True)
-    with col3:
-        st.markdown("""
-            <div style='border: 4px solid #6c5ce7; border-radius: 20px; text-align: center; margin-bottom: 10px; '>
-                <h4 style='color:#6c5ce7;'>Master of Computer Applications (MCA) </h4>
-                <h5>Madanapalle Institute of Technology & Science - Madanapalle</h5>
-            </div>
-        """, unsafe_allow_html=True)
-    with col4:
-        pass
+    col1, col2 = st.columns([3, 1])
 
-    col1, col2, col3, col4 = st.columns([1, 2, 6, 1])
+    # First column with two rows
     with col1:
-        pass
-    with col2:
-         st.markdown("""
+        year, mca = st.columns([2, 7], gap="small")
+        with year:
+            st.markdown("""
+            <div style='display: flex; align-items: center; justify-content: center; 
+                            border: 4px solid #6c5ce7; border-radius: 20px; text-align: center; 
+                            height: 100%; margin-top:70px;'>
+                    <h4 style='color:#0984e3; margin: 0;'>2022 - 2024</h4>
+            </div>""", unsafe_allow_html=True)
+        with mca:
+            st.markdown("""
+                <div style='border: 4px solid #6c5ce7; border-radius: 20px; text-align: center; margin-bottom: 10px; margin-top:50px;'>
+                    <h4 style='color:#6c5ce7;'>Master of Computer Applications (MCA) </h4>
+                    <h5>Madanapalle Institute of Technology & Science - Madanapalle</h5>
+                </div>
+            """, unsafe_allow_html=True)
+        year, bca = st.columns([2, 7], gap="small")
+        with year:
+            st.markdown("""
             <div style='display: flex; align-items: center; justify-content: center; 
                         border: 4px solid #0984e3; border-radius: 20px; text-align: center; 
                         height: 100%; margin-top:20px;'>
                 <h4 style='color:#0984e3; margin: 0;'>2018 - 2021</h4>
             </div>
             """, unsafe_allow_html=True)
-    with col3:
-        st.markdown("""
+        with bca:
+            st.markdown("""
             <div style='border: 4px solid #0984e3; border-radius: 20px; text-align: center; margin-bottom: 10px;'>
                 <h4 style='color:#0984e3;'>Bachelor of Computer Applications (BCA) </h4>
                 <h5>SJES College of Management Studies - Bangalore</h5>
             </div>
         """, unsafe_allow_html=True)
-    with col4:
-        pass
+
+    # Second column with one row
+    with col2:
+        st_lottie(study_lottie, height=300, reverse=True)
 
 # End of Education Section
 
@@ -509,6 +521,47 @@ elif selected == "Skills":
 
 # Start of Blogs Section
 
+elif selected == "Blogs":
+    # Create two columns
+    col1, col2 = st.columns([3, 1])
+
+    # First column with two rows
+    with col1:
+        year, mca = st.columns([2, 7], gap="small")
+        with year:
+            st.markdown("""
+            <div style='display: flex; align-items: center; justify-content: center; 
+                            border: 4px solid #6c5ce7; border-radius: 20px; text-align: center; 
+                            height: 100%; margin-top:70px;'>
+                    <h4 style='color:#0984e3; margin: 0;'>2022 - 2024</h4>
+            </div>""", unsafe_allow_html=True)
+        with mca:
+            st.markdown("""
+                <div style='border: 4px solid #6c5ce7; border-radius: 20px; text-align: center; margin-bottom: 10px; margin-top:50px;'>
+                    <h4 style='color:#6c5ce7;'>Master of Computer Applications (MCA) </h4>
+                    <h5>Madanapalle Institute of Technology & Science - Madanapalle</h5>
+                </div>
+            """, unsafe_allow_html=True)
+        year, bca = st.columns([2, 7], gap="small")
+        with year:
+            st.markdown("""
+            <div style='display: flex; align-items: center; justify-content: center; 
+                        border: 4px solid #0984e3; border-radius: 20px; text-align: center; 
+                        height: 100%; margin-top:20px;'>
+                <h4 style='color:#0984e3; margin: 0;'>2018 - 2021</h4>
+            </div>
+            """, unsafe_allow_html=True)
+        with bca:
+            st.markdown("""
+            <div style='border: 4px solid #0984e3; border-radius: 20px; text-align: center; margin-bottom: 10px;'>
+                <h4 style='color:#0984e3;'>Bachelor of Computer Applications (BCA) </h4>
+                <h5>SJES College of Management Studies - Bangalore</h5>
+            </div>
+        """, unsafe_allow_html=True)
+
+    # Second column with one row
+    with col2:
+        st_lottie(study_lottie, height=300, reverse=True)
 
 # End of Blogs Section
 
