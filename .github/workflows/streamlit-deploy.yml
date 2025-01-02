@@ -26,5 +26,5 @@ jobs:
           pip install -r requirements.txt
 
       # Run Streamlit to verify the app (optional for debugging)
-      - name: Run Streamlit (optional)
-        run: streamlit run index.py --server.headless true
+      # - name: Run Streamlit (optional)
+      #  run: streamlit run index.py --server.headless true

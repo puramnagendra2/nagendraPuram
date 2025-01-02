@@ -22,7 +22,7 @@ lottie_coder = load_lottie(r"https://lottie.host/f1824c04-c2e3-4190-942e-89bc702
 study_lottie = load_lottie(r"https://lottie.host/9a28a239-0f79-4afa-bda9-6efe44b47e4d/TWbQQlAANL.json") 
 
 # Projects Images
-project1 = Image.open("static/investology.png")
+project1 = Image.open("static/Investology.png")
 project2 = Image.open("static/Malware Class.png")
 
 # Personal
