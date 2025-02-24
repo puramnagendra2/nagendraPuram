@@ -16,14 +16,14 @@ def load_lottie(url):
         return None
     return r.json()
 
-lottie_coder = load_lottie(r"https://lottie.host/f1824c04-c2e3-4190-942e-89bc7028a163/LEB3P705dH.json")
+# lottie_coder = load_lottie(r"https://lottie.host/f1824c04-c2e3-4190-942e-89bc7028a163/LEB3P705dH.json")
 
 # Studying Lottie
 study_lottie = load_lottie(r"https://lottie.host/9a28a239-0f79-4afa-bda9-6efe44b47e4d/TWbQQlAANL.json") 
 
 # Projects Images
-project1 = Image.open("static/Investology.png")
-project2 = Image.open("static/Malware Class.png")
+project1 = Image.open("static/images/Investology.png")
+project2 = Image.open("static/images/Malware Class.png")
 
 # Personal
 st.set_page_config(page_title="Nagendra Puram", page_icon=":wave:", layout="wide")
@@ -80,7 +80,7 @@ st.markdown("""
             </style>
             <div class='header-container'>
                     <h1>Nagendra Puram</h1>
-                    <p style='color: gray;'>Data Scientist and DevOps Engineer</p>
+                    <p style='color: gray;'>Data Scientist & Gen AI Developer</p>
                     </div>
             </div>""", unsafe_allow_html=True)
 
@@ -284,72 +284,9 @@ with st.container():
             "nav-link-selected": {"background-color": "#008cba", "color": "white", "cursor": "default"},  # Background for selected item
         },
     )
-    col1, col2, col3 = st.columns([1, 2, 1], gap='small')
-    with col1:
-        pass
-    with col2:
-        # Function to encode image to base64
-        def image_to_base64(image_path):
-            with open(image_path, "rb") as img_file:
-                return base64.b64encode(img_file.read()).decode("utf-8")
-
-        # Paths to your local images
-        images = [
-            "static/linux.png",
-            "static/git.png",
-            "static/ansible.png",
-            "static/azure-devops.png",
-            "static/docker.png",
-            "static/terraform.png",
-            "static/kubernetes.png",
-        ]
-
-        # Encode images to base64
-        encoded_images = [image_to_base64(image) for image in images]
-
-        # Generate the HTML with embedded images
-        html_code = """
-        <style>
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin-top: 10px;
-            margin-left: 0px;
-        }
-
-        .logo-container img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-
-        .logo-container img:hover {
-            transform: scale(1.1);
-        }
-        </style>
-        <div class="logo-container">
-        """
-
-        # Add each image to the HTML
-        for encoded_image in encoded_images:
-            html_code += f'<img src="data:image/png;base64,{encoded_image}" alt="Logo">'
-
-        html_code += "</div>"
-
-        # Display the HTML in Streamlit
-        st.markdown(html_code, unsafe_allow_html=True)
-    with col3:
-        pass
-
 
     # Data Science
     col1, col2, col3 = st.columns([1, 2, 1], gap='small')
-    with col1:
-        pass
     with col2:
         # Function to encode image to base64
         def image_to_base64(image_path):
@@ -358,15 +295,15 @@ with st.container():
 
         # Paths to your local images
         images = [
-            "static/python.png",
-            "static/numpy.png",
-            "static/pandas.png",
-            "static/matplotlib.png",
-            "static/seaborn.png",
-            "static/plotly.png",
-            "static/scikit.png",
-            "static/tensorflow.png",
-            "static/streamlit.png"
+            "static/images/python.png",
+            "static/images/numpy.png",
+            "static/images/pandas.png",
+            "static/images/matplotlib.png",
+            "static/images/seaborn.png",
+            "static/images/plotly.png",
+            "static/images/scikit.png",
+            "static/images/tensorflow.png",
+            "static/images/streamlit.png"
         ]
 
         # Encode images to base64
@@ -374,30 +311,48 @@ with st.container():
 
         # Generate the HTML with embedded images
         html_code = """
-        <style>
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin-top: 60px;
-            margin-left: 0px;
-        }
+            <style>
+            .logo-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 15px;
+                margin-top: 10px;
+            }
 
-        .logo-container img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
+            .logo-container img {
+                width: 80px;
+                height: auto;
+                max-width: 100%;
+                border-radius: 50%;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s;
+            }
 
-        .logo-container img:hover {
-            transform: scale(1.1);
-        }
-        </style>
-        <div class="logo-container">
-        """
+            .logo-container img:hover {
+                transform: scale(1.1);
+            }
+
+            /* Responsive styles */
+            @media (max-width: 768px) {
+                .logo-container img {
+                    width: 45px; /* Reduce size on smaller screens */
+                }
+            }
+
+            @media (max-width: 480px) {
+                .logo-container {
+                    gap: 10px; /* Reduce gap for very small screens */
+                }
+                .logo-container img {
+                    width: 40px; 
+                }
+            }
+            </style>
+            <div class="logo-container">
+            """
+
 
         # Add each image to the HTML
         for encoded_image in encoded_images:
@@ -407,14 +362,12 @@ with st.container():
 
         # Display the HTML in Streamlit
         st.markdown(html_code, unsafe_allow_html=True)
-    with col3:
-        pass
+
+    st.write("\n")
+    st.write("\n")
 
     # Full Stack
-    # Data Science
     col1, col2, col3 = st.columns([1, 2, 1], gap='small')
-    with col1:
-        pass
     with col2:
         # Function to encode image to base64
         def image_to_base64(image_path):
@@ -423,13 +376,13 @@ with st.container():
 
         # Paths to your local images
         images = [
-            "static/html.png",
-            "static/css.png",
-            "static/js.png",
-            "static/django.png",
-            "static/postgresql.png",
-            "static/mongodb.png",
-            "static/api.png"
+            "static/images/html.png",
+            "static/images/css.png",
+            "static/images/js.png",
+            "static/images/django.png",
+            "static/images/postgresql.png",
+            "static/images/mongodb.png",
+            "static/images/api.png"
         ]
 
         # Encode images to base64
@@ -437,30 +390,48 @@ with st.container():
 
         # Generate the HTML with embedded images
         html_code = """
-        <style>
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin-top: 60px;
-            margin-left: 0px;
-        }
+            <style>
+            .logo-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 15px;
+                margin-top: 10px;
+            }
 
-        .logo-container img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
+            .logo-container img {
+                width: 60px;
+                height: auto;
+                max-width: 100%;
+                border-radius: 50%;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s;
+            }
 
-        .logo-container img:hover {
-            transform: scale(1.1);
-        }
-        </style>
-        <div class="logo-container">
-        """
+            .logo-container img:hover {
+                transform: scale(1.1);
+            }
+
+            /* Responsive styles */
+            @media (max-width: 768px) {
+                .logo-container img {
+                    width: 45px; /* Reduce size on smaller screens */
+                }
+            }
+
+            @media (max-width: 480px) {
+                .logo-container {
+                    gap: 10px; /* Reduce gap for very small screens */
+                }
+                .logo-container img {
+                    width: 40px; 
+                }
+            }
+            </style>
+            <div class="logo-container">
+            """
+
 
         # Add each image to the HTML
         for encoded_image in encoded_images:
@@ -470,8 +441,7 @@ with st.container():
 
         # Display the HTML in Streamlit
         st.markdown(html_code, unsafe_allow_html=True)
-    with col3:
-        pass
+    
 
 # End of Skills Section
 
@@ -584,230 +554,26 @@ elif selected == "Blogs":
 st.divider()
 
 # Contact Section
-with st.container():
-    selected = option_menu(
-        menu_title=None,
-        options=["Contact Us"],
-        icons=["envelope-arrow-down-fill"],
-        orientation='horizontal',
-        menu_icon="cast",
-        styles={
-            "container": { "width": "20%"},  # Background of the entire menu
-            "nav-link": {
-                "font-size": "20px",
-                "font-family": "cursive",
-                "text-align": "center",
-                "color": "white",
-                "cursor": "default"
-            },
-            "nav-link-selected": {"background-color": "#008cba", "color": "white", "cursor": "default"},  # Background for selected item
-        },
-    )
-    st.markdown("""
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-        .container {
-            width: 80%; 
-            background: #fff; 
-            border-radius: 6px; 
-            padding: 20px 60px 30px 40px;
-            border-left: 4px solid #3e2093;
-            border-right: 4px solid #3e2093;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); 
-            margin: 40px auto; /* Center the container horizontally */
-            display: flex; /* Use flexbox to align items */
-            flex-direction: column; /* Align items vertically */
-            align-items: center; /* Center items horizontally within the flex container */
-        }
-        .container .content{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .container .content .left-side{
-            width: 25%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-top: 15px;
-            position: relative;
-        }
-        .content .left-side::before{
-            content: '';
-            position: absolute;
-            height: 70%;
-            width: 2px;
-            right: -15px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: #afafb6;
-        }
-        .content .left-side .details{
-            margin: 14px;
-            text-align: center;
-        }
-        .content .left-side .details i{
-            font-size: 30px;
-            color: #3e2093;
-            margin-bottom: 10px;
-        }
-        .content .left-side .details .topic{
-            font-size: 18px;
-            font-weight: 500;
-        }
-        .content .left-side .details .text-one,
-        .content .left-side .details .text-two{
-            font-size: 14px;
-            color: #afafb6;
-        }
-        .container .content .right-side{
-            width: 75%;
-            margin-left: 75px;
-        }
-        .content .right-side .topic-text{
-            font-size: 23px;
-            font-weight: 600;
-            color: #3e2093;
-        }
-        .right-side .input-box{
-            height: 50px;
-            width: 100%;
-            margin: 12px 0;
-        }
-        .right-side .input-box input,
-        .right-side .input-box textarea{
-            height: 100%;
-            width: 100%;
-            border: none;
-            outline: none;
-            font-size: 16px;
-            background: #F0F1F8;
-            border-radius: 6px;
-            padding: 0 15px;
-            resize: none;
-        }
-        .right-side .message-box{
-            min-height: 110px;
-        }
-        .right-side .input-box textarea{
-            padding-top: 6px;
-        }
-        .right-side .button{
-            display: inline-block;
-            margin-top: 12px;
-        }
-        .right-side .button input[type="button"]{
-            color: #fff;
-            font-size: 18px;
-            outline: none;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            background: #3e2093;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .button input[type="button"]:hover{
-            background: #5029bc;
-        }
-
-        @media (max-width: 950px) {
-            .container{
-                width: 90%;
-                padding: 30px 40px 40px 35px ;
-            }
-            .container .content .right-side{
-            width: 75%;
-            margin-left: 55px;
-            }
-        }
-        @media (max-width: 820px) {
-            .container{
-                margin: 40px 0;
-                height: 100%;
-            }
-            .container .content{
-                flex-direction: column-reverse;
-            }
-            .container .content .left-side{
-            width: 100%;
-            flex-direction: row;
-            margin-top: 40px;
-            justify-content: center;
-            flex-wrap: wrap;
-            }
-            .container .content .left-side::before{
-            display: none;
-            }
-            .container .content .right-side{
-            width: 100%;
-            margin-left: 0;
-            }
-        }
-    </style>
-    <div class="container">
-        <div class="content">
-        <div class="left-side">
-            <div class="address details">
-                <i class="fa-brands fa-linkedin"></i>
-                <div class="topic">Address</div>
-                <div class="text-one">linkedin.com/in/puramnagendra2</div>
-            </div>
-            <div class="phone details">
-                <i class="fas fa-phone-alt"></i>
-                <div class="topic">Phone</div>
-                <div class="text-one">+91 6302463724</div>
-            </div>
-            <div class="email details">
-                <i class="fas fa-envelope"></i>
-                <div class="topic">Email</div>
-                <div class="text-one">puramnagendra2@gmail.com</div>
-            </div>
-        </div>
-        <div class="right-side">
-            <div class="topic-text"><h2>Send me a query</h2></div>
-            <p>If you have any work from me or any types of quries related to my tutorial, you can send me message from here. It's my pleasure to help you.</p>
-            <form action="#">
-                <div class="input-box">
-                    <input type="text" placeholder="Enter your name">
-                </div>
-                <div class="input-box">
-                    <input type="text" placeholder="Enter your email">
-                </div>
-                <div class="input-box message-box">
-                    <input type="text" placeholder="Enter your message">
-                </div>
-                <div class="button">
-                <input type="button" value="Send Now" >
-                </div>
-            </form>
-        </div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+emp1, frm1, emp2 = st.columns([0.5, 4, 0.5], gap="small")
 
 
-# Footer Section
-footer = """
-<style>
-.footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #f8f9fa;
-    color: #6c757d;
-    text-align: center;
-    padding: 10px;
-    font-size: 14px;
-    font-family: cursive;
-    border-top: 1px solid #e7e7e7;
-}
-</style>
-<div class="footer">
-    © 2025 Puram Nagendra | All Rights Reserved.
-</div>
-"""
-st.markdown(footer, unsafe_allow_html=True)
+with frm1:
+    with st.form("contact-form", enter_to_submit=True):
+
+        emp1, frm, emp2 = st.columns([0.5, 4, 0.5])
+        
+        with frm:
+
+            st.header("Contact Me")
+            st.write("If you have any work from me or any types of quries related to my tutorial, you can send me message from here. It's my pleasure to help you.")
+
+            name = st.text_input(label="Name", max_chars=50, placeholder="Enter your name", label_visibility="collapsed")
+
+            email_field = st.text_input(label="Email", max_chars=100, placeholder="Enter your mail", label_visibility="collapsed")
+
+            query_field = st.text_area(label="Message", placeholder="Enter your message", label_visibility="collapsed", height=150)
+
+            form_submission = st.form_submit_button("Submit", type="primary")
+
+        if form_submission:
+            st.subheader(f"Thank You ")
